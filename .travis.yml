@@ -9,5 +9,5 @@ script:
 notifications:
   email:
     - brazeaux@hotmail.ca
-    on_success: always # default: change
-    on_failure: always # default: always
+    on_success: always
+    on_failure: always
