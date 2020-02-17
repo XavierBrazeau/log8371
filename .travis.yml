@@ -6,3 +6,8 @@ script:
   - if ( [ "$TRAVIS_EVENT_TYPE" = "push" ] || [ "$TRAVIS_EVENT_TYPE" = "pull_request" ] ) ; then ./gradlew :modules:analysis-common:precommit
   - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:systemd:precommit
 
+notifications:
+  email:
+    - brazeaux@hotmail.ca
+    on_success: always
+    on_failure: always
