@@ -3,5 +3,6 @@ jdk:
   - oraclejdk13
 script:
   - ./gradlew :modules:systemd:precommit
-
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "push" ] || [ "$TRAVIS_EVENT_TYPE" = "pull_request" ] ) ; then ./gradlew :modules:analysis-common:precommit
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:systemd:precommit
 
