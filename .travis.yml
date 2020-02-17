@@ -2,6 +2,15 @@ language: java
 jdk:
   - oraclejdk13
 script:
-  - ./gradlew :modules:systemd:precommit
-  - if ( [ "$TRAVIS_EVENT_TYPE" = "push" ] || [ "$TRAVIS_EVENT_TYPE" = "pull_request" ] ) ; then ./gradlew :modules:analysis-common:precommit
-  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:systemd:precommit
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "push" ] || [ "$TRAVIS_EVENT_TYPE" = "pull_request" ] ) ; then ./gradlew :modules:analysis-common:precommit;
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "push" ] || [ "$TRAVIS_EVENT_TYPE" = "pull_request" ] ) ; then ./gradlew :modules:systemd:precommit;
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "push" ] || [ "$TRAVIS_EVENT_TYPE" = "pull_request" ] ) ; then ./gradlew :modules:ingest-geoip:precommit;
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "push" ] || [ "$TRAVIS_EVENT_TYPE" = "pull_request" ] ) ; then ./gradlew :modules:ingest-user-agent:precommit;
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:analysis-common:test
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:systemd:test
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:ingest-geoip:test
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:ingest-user-agent:test
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:analysis-common:integTest
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:systemd:integTest
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:ingest-geoip:integTest
+  - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:ingest-user-agent:integTest
