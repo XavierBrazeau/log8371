@@ -2,4 +2,5 @@ language: java
 jdk:
   - oraclejdk13
 script:
-  - ./gradlew :modules:analysis-common:integTest
+  - ./gradlew :modules:analysis-common:precommit
+  - ./gradlew :modules:systemd:precommit
