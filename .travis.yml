@@ -14,4 +14,8 @@ script:
   - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:systemd:integTest; fi
   - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:ingest-geoip:integTest; fi
   - if ( [ "$TRAVIS_EVENT_TYPE" = "cron" ] ) ; then ./gradlew :modules:ingest-user-agent:integTest;fi
+notifications:
+  slack:
+    on_success: always
+
 #fdsa
